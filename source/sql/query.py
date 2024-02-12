@@ -1,0 +1,13 @@
+CREATE_TABEL_NEWS = """
+CREATE TABLE IF NOT EXISTS news (
+    id INTEGER NOT NULL,
+    title TEXT NOT NULL,
+    url TEXT NOT NULL UNIQUE,
+    PRIMARY KEY (id)
+);
+"""
+
+INSERT_NEWS = """
+INSERT INTO news VALUES (NULL, ?, ?)
+ON CONFLICT (url) DO NOTHING;
+"""
